@@ -61,17 +61,20 @@ while True:
     elif ans == "3":
         while True:
             start_num = input("Tell me where do you want to start? (sentence number): ").strip()
-            if start_num.isnumeric == False:
+            if start_num.isnumeric() == False:
                 print("invalid number")
                 continue
             if int(start_num) > 0 and int(start_num) < 1001:
                 if int(start_num) == 1:
                     should_start = True
+                    break
                 else:
                     should_start = False
-                progress_str = start_num
-            break
-        break
+                    progress_str = start_num
+                    break
+            else:
+                print("number is out of range")
+                continue
     elif ans == "4":
         exit()
 
@@ -94,7 +97,7 @@ for sentence in sentences:
                 exit()
             if ans == sentence.jpa:
                 print("Correct!")
-                print("Chisese:", sentence.cn)
+                print("Chinese:", sentence.cn)
                 _ = input(" --- press enter to continue --- ")
                 break
             else:
